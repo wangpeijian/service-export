@@ -1,0 +1,13 @@
+server:
+  port: 9991
+  servlet:
+    context-path: /service-export
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9901/eureka/
+
+spring:
+  application:
+    name: service-export
