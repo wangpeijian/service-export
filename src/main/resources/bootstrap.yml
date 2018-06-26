@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://10.76.51.38:9921/

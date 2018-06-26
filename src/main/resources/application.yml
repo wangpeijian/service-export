@@ -1,3 +1,7 @@
+spring:
+  application:
+    name: service-export
+
 server:
   port: 9981
 
@@ -12,14 +16,3 @@ eureka:
 feign:
   hystrix:
     enabled: true
-
-foo: 123
-
-spring:
-  application:
-    name: service-export
-  cloud:
-    config:
-      label: master
-      profile: dev
-      uri: http://10.76.51.38:9921/
