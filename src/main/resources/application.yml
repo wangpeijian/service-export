@@ -5,10 +5,14 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://10.76.51.38:9901/eureka/
+  instance:
+    prefer-ip-address: true
 
 feign:
   hystrix:
     enabled: true
+
+foo: 123
 
 spring:
   application:
@@ -17,4 +21,4 @@ spring:
     config:
       label: master
       profile: dev
-      uri: http://localhost:8888/
+      uri: http://10.76.51.38:9921/
