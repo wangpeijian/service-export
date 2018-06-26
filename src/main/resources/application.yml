@@ -4,12 +4,17 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:9901/eureka/
+      defaultZone: http://10.76.51.38:9901/eureka/
 
 feign:
   hystrix:
-   enabled: true
+    enabled: true
 
 spring:
   application:
     name: service-export
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8888/

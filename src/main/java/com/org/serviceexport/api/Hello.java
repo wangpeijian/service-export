@@ -2,6 +2,7 @@ package com.org.serviceexport.api;
 
 import com.org.serviceexport.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,9 +17,16 @@ public class Hello {
     @Autowired
     private HelloService helloService;
 
+    @Value("${foo}")
+    String foo;
+
     @RequestMapping("user")
     public String index(){
         return helloService.hello("wpj");
     }
 
+    @RequestMapping("config")
+    public String config(){
+        return foo;
+    }
 }
