@@ -1,6 +1,17 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9901/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
 spring:
   cloud:
     config:
       label: master
       profile: dev
-      uri: http://10.76.51.38:9921/
+#      uri: http://localhost:9921/
+      discovery:
+        enabled: true
+        service-id: service-config

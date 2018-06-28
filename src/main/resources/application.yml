@@ -8,7 +8,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://10.76.51.38:9901/eureka/
+      defaultZone: http://localhost:9901/eureka/
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
@@ -16,3 +16,18 @@ eureka:
 feign:
   hystrix:
     enabled: true
+  compression:
+    request:
+      enabled: true
+      min-type: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info
+
+foo: 123
