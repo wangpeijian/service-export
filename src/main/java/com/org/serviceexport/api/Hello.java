@@ -1,6 +1,7 @@
 package com.org.serviceexport.api;
 
 import com.org.serviceexport.service.HelloService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -12,7 +13,8 @@ import org.springframework.web.client.RestTemplate;
  * Create by wangpeijian on 2018/6/22.
  */
 
-@RefreshScope
+@Slf4j
+/*@RefreshScope*/
 @RequestMapping("hello")
 @RestController
 public class Hello {
@@ -28,7 +30,20 @@ public class Hello {
 
     @RequestMapping("user")
     public String index(){
-        return helloService.hello("wpj");
+        String a = "";
+        long time = System.currentTimeMillis();
+        log.info("测试超时时间起始： {}", time);
+
+        try {
+            a = helloService.hello("wpj");
+        }catch (Exception e){
+            log.error("测试超时时间异常： {}", System.currentTimeMillis() - time);
+            log.error(e.getMessage());
+            e.printStackTrace();
+        }
+        log.info("测试超时时间结束： {}", System.currentTimeMillis() - time);
+
+        return a;
     }
 
     @RequestMapping("config")

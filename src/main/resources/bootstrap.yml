@@ -1,17 +1,17 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:9901/eureka/
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:9901/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
 
-spring:
-  cloud:
-    config:
-      label: master
-      profile: dev
+#spring:
+#  cloud:
+#    config:
+#      label: master
+#      profile: dev
 #      uri: http://localhost:9921/
-      discovery:
-        enabled: true
-        service-id: service-config
+#      discovery:
+#        enabled: true
+#        service-id: service-config
